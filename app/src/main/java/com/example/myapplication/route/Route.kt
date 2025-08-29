@@ -2,6 +2,7 @@
 
 package com.example.myapplication.route
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,6 +26,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
@@ -47,7 +49,7 @@ fun HomeScreen(
         title = "Home",
         onClickAction = { onNavigate(Settings) },
     ) { innerPadding ->
-        Box(modifier.fillMaxSize().padding(innerPadding)) {
+        Box(modifier.fillMaxSize().padding(innerPadding).background(Color.Red)) {
             Column(Modifier.align(Alignment.Center)) {
                 TextButton(onClick = { onNavigate(List) }) {
                     Text("To List")
@@ -70,7 +72,7 @@ fun ListScreen(
         onClickBack = onBack,
         onClickAction = onClickSetting?.let { { onClickSetting() } },
     ) { innerPadding ->
-        LazyColumn(modifier = modifier.fillMaxSize().padding(innerPadding), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        LazyColumn(modifier = modifier.fillMaxSize().padding(innerPadding).background(Color.Cyan), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             items(list) {
                 ListItem(headlineContent = { Text(it) }, modifier = Modifier.clickable {
                     onClickDetail(it)
@@ -92,7 +94,7 @@ fun DetailScreen(
         onClickBack = onBack,
         onClickAction = onClickSetting?.let { { onClickSetting(Settings) } },
     ) { innerPadding ->
-        Box(modifier.fillMaxSize().padding(innerPadding)) {
+        Box(modifier.fillMaxSize().padding(innerPadding).background(Color.Yellow)) {
             Text("Detail $id", modifier = Modifier.align(Alignment.Center))
         }
     }

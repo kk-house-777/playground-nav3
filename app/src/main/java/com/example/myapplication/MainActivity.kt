@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MaterialListDetailSample(modifier = Modifier.padding(innerPadding))
+                    FourPaneSample(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
